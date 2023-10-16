@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Moviemania';
+  http = inject(HttpClient); // patrón de inyección de dependencias, instancia a toda la app
+
+  changeTitle() {
+    this.title = 'changed';
+  }
+
+  // ciclo de vida de un componente, trigger del componente renderizado
+  // ngOnInit() {
+  //   this.http.get();
+  // }
 }
